@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAA828F4-419B-4078-8EB6-533FBD86E800}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>build</RootNamespace>
+    <AssemblyName>build</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/build/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="build.bat" />
+    <None Include="build\tasks\configuration.rb" />
+    <None Include="build\tasks\git.rb" />
+    <None Include="build\tasks\machine_specs.rb" />
+    <None Include="build\tasks\templates.rb" />
+    <None Include="build\tools\Rake\bin\rake" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\date.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\date\format.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\delegate.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\erb.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\fileutils.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\bigdecimal.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\curses.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\dbm.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest\bubblebabble.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest\md5.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest\rmd160.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest\sha1.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest\sha2.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\dl.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\enumerator.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\etc.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\fcntl.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\gdbm.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\iconv.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\io\wait.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\nkf.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\openssl.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\racc\cparse.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\rbconfig.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\readline.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\sdbm.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\socket.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\stringio.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\strscan.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\syck.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\tcltklib.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\thread.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\tkutil.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\Win32API.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\win32ole.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\zlib.so" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\monitor.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\optparse.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\ostruct.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\rational.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\singleton.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\tempfile.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\tmpdir.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\win32\registry.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\baseemitter.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\basenode.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\constants.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\dbm.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\encoding.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\error.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\loader.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\rubytypes.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\store.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\stream.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\stringio.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\syck.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\tag.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\types.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\yamlnode.rb" />
+    <None Include="build\tools\Rake\lib\ruby\1.8\yaml\ypath.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\configatron.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\core_ext\class.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\core_ext\kernel.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\core_ext\object.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\core_ext\string.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\errors.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\configatron\store.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\alt_system.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\classic_namespace.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\clean.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\compositepublisher.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\ftptools.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\publisher.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\rubyforgepublisher.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\sshpublisher.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\contrib\sys.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\gempackagetask.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\loaders\makefile.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\packagetask.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\rake_test_loader.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\rdoctask.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\ruby182_test_unit_fix.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\runtest.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\tasklib.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\testtask.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rake\win32.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\rubygems.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\ubygems.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\yamler.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\yamler\template.rb" />
+    <None Include="build\tools\Rake\lib\ruby\site_ruby\1.8\yamler\yamler.rb" />
+    <None Include="build\utils\configatron.rb" />
+    <None Include="build\utils\file.rb" />
+    <None Include="build\utils\msbuild_runner.rb" />
+    <None Include="build\utils\sevenzip.rb" />
+    <None Include="build\utils\string.rb" />
+    <None Include="build\utils\template_file.rb" />
+    <None Include="fetch_latest" />
+    <None Include="push" />
+    <None Include="push_latest_work.ps1" />
+    <None Include="rakefile.rb" />
+    <None Include="start_new_exercise.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="build\tools\Rake\bin\msvcrt-ruby18.dll" />
+    <Content Include="build\tools\Rake\bin\ruby.exe" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\config.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\defines.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\digest.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\dl.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\dlconfig.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\dln.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\env.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\intern.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\missing.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\node.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\re.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\regex.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\ruby.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\rubyio.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\rubysig.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\st.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\util.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\version.h" />
+    <Content Include="build\tools\Rake\lib\ruby\1.8\i386-mswin32\win32\win32.h" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

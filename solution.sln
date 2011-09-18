@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nothinbutdotnetprep", "source\nothinbutdotnetprep\nothinbutdotnetprep.csproj", "{286C7067-D921-4B26-8CFA-9F9B795FD4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "build", "build.csproj", "{EAA828F4-419B-4078-8EB6-533FBD86E800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nothinbutdotnetprep.specs", "source\nothinbutdotnetprep.specs\nothinbutdotnetprep.specs.csproj", "{EF77F62B-1CC6-4C03-8198-26DB2D24EE75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{286C7067-D921-4B26-8CFA-9F9B795FD4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286C7067-D921-4B26-8CFA-9F9B795FD4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286C7067-D921-4B26-8CFA-9F9B795FD4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286C7067-D921-4B26-8CFA-9F9B795FD4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA828F4-419B-4078-8EB6-533FBD86E800}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA828F4-419B-4078-8EB6-533FBD86E800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF77F62B-1CC6-4C03-8198-26DB2D24EE75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF77F62B-1CC6-4C03-8198-26DB2D24EE75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF77F62B-1CC6-4C03-8198-26DB2D24EE75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF77F62B-1CC6-4C03-8198-26DB2D24EE75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
