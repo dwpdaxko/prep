@@ -24,7 +24,7 @@ namespace nothinbutdotnetprep.utility.filtering
 
         public IMatchA<ItemToFilter> not_equal_to(PropertyType value)
         {
-            throw new NotImplementedException();
+            return new AnonymousMatch<ItemToFilter>(x => !x.Equals(value));
         }
     }
 }
