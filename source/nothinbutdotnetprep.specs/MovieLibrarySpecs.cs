@@ -4,7 +4,6 @@ using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using nothinbutdotnetprep.collections;
-using nothinbutdotnetprep.specifications;
 using nothinbutdotnetprep.specs.utility;
 using System.Linq;
 
@@ -195,14 +194,14 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
-                var results = sut.get_movies_by(new PublisherSpecification(ProductionStudio.Pixar));
+                var results = sut.all_movies_published_by_pixar();
 
                 results.ShouldContainOnly(cars, a_bugs_life);
             };
 
             It should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
-                var results = sut.get_movies_by(new PublisherSpecification(ProductionStudio.Pixar).And(new PublisherSpecification(ProductionStudio.Disney)));
+                var results = sut.all_movies_published_by_pixar_or_disney();
 
                 results.ShouldContainOnly(a_bugs_life, pirates_of_the_carribean, cars);
             };
