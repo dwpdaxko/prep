@@ -19,12 +19,17 @@ namespace nothinbutdotnetprep.utility.filtering
 
         public IMatchA<ItemToFilter> equal_to_any(params PropertyType[] values)
         {
-            return new AnonymousMatch<ItemToFilter>(x => new List<PropertyType>(values).Contains(accessor(x)));
+            return executeAnonymousMatch(x => new List<PropertyType>(values).Contains(accessor(x)));
         }
 
         public IMatchA<ItemToFilter> not_equal_to(PropertyType value)
         {
             return equal_to_any(value).not();
+        }
+
+        public IMatchA<ItemToFilter> executeAnonymousMatch(Condition<ItemToFilter> crit)
+        {
+            return new AnonymousMatch<ItemToFilter>(crit);
         }
     }
 }

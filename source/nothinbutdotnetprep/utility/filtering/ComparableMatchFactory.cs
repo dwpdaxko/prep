@@ -15,7 +15,7 @@ namespace nothinbutdotnetprep.utility.filtering
 
         public IMatchA<ItemToFilter> greater_than(PropertyType value)
         {
-            return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(value) > 0);
+            return original.executeAnonymousMatch(x => accessor(x).CompareTo(value) > 0);
         }
 
         public IMatchA<ItemToFilter> less_than(PropertyType value)
