@@ -8,6 +8,7 @@ using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.specs.utility;
 using nothinbutdotnetprep.utility;
 using nothinbutdotnetprep.utility.filtering;
+using nothinbutdotnetprep.utility.sorting;
 
 /* The following set of Context/Specification pairs are in place to specify the functionality that you need to complete for the MovieLibrary class.
  * MovieLibrary is an collection of Movie. It exposes the ability to search,sort, and iterate over all of the movies that it contains.
@@ -220,9 +221,9 @@ namespace nothinbutdotnetprep.specs
             {
                 var criteria = Where<Movie>
                                     .has_a(x => x.production_studio)
-                                    .not_equal_to(ProductionStudio.Pixar);
+                                    .not.equal_to(ProductionStudio.Pixar);
 
-                var results = sut.all_movies_not_published_by_pixar();
+                var results = sut.all_movies().all_items_matching(criteria);
 
                 results.ShouldNotContain(cars, a_bugs_life);
             };
@@ -230,10 +231,11 @@ namespace nothinbutdotnetprep.specs
             It should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
             {
                 var criteria = Where<Movie>
-                                    .has_a(x => x.date_published.Year)
+                                    .has_a(x => x.date_published)
                                     .greater_than(2004);
 
-                var results = sut.all_movies().all_items_matching(criteria);
+
+                var results = sut.all_movies().Where(criteria.matches);
 
 
                 results.ShouldContainOnly(the_ring, shrek, theres_something_about_mary);
@@ -245,7 +247,7 @@ namespace nothinbutdotnetprep.specs
                                     .has_a(x => x.date_published.Year)
                                     .between(1982,2003);
 
-                var results = sut.all_movies_published_between_years(1982, 2003);
+                var results = sut.all_movies().all_items_matching(criteria)
 
                 results.ShouldContainOnly(indiana_jones_and_the_temple_of_doom, a_bugs_life, pirates_of_the_carribean);
             };
@@ -276,7 +278,9 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_sort_all_movies_by_title_descending = () =>
             {
-                var results = sut.sort_all_movies_by_title_descending();
+                var comparer = Order<Movie>.by_descending(x => x.title);
+
+                var results = sut.all_movies().sort_using(comparer);
 
                 results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
                                                  pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
@@ -318,6 +322,15 @@ namespace nothinbutdotnetprep.specs
                 //Dreamworks
                 //Universal
                 //Disney
+                var comparer = Order<Movie>.by(x => x.production_studio,
+                                               ProductionStudio.MGM,
+                                               ProductionStudio.Pixar,
+                                               ProductionStudio.Dreamworks,
+                                               ProductionStudio.Universal,
+                                               ProductionStudio.Disney,
+                                               ProductionStudio.Paramount)
+                                            .then_by(x => x.date_published);
+
                 var results = sut.sort_all_movies_by_movie_studio_and_year_published();
                 /* should return a set of results 
                  * in the collection sorted by the rating of the production studio (not the movie rating) and year published. for this exercise you need to take the studio ratings

@@ -65,15 +65,16 @@
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
-    <Compile Include="utility\filtering\AnonymousMatch.cs" />
+    <Compile Include="utility\filtering\DateMatchingExtensions.cs" />
     <Compile Include="utility\filtering\EqualToAny.cs" />
-    <Compile Include="utility\filtering\ICreateMatchers.cs" />
     <Compile Include="utility\filtering\FallsInRange.cs" />
+    <Compile Include="utility\filtering\IProvideAccessToCreateMatchers.cs" />
     <Compile Include="utility\filtering\IsGreaterThan.cs" />
     <Compile Include="utility\filtering\MatchExtensions.cs" />
+    <Compile Include="utility\filtering\MatchingExtensionPoint.cs" />
+    <Compile Include="utility\filtering\NegatingExtensionPoint.cs" />
     <Compile Include="utility\filtering\NegatingMatch.cs" />
     <Compile Include="utility\filtering\NeverMatch.cs" />
-    <Compile Include="utility\filtering\MatchFactory.cs" />
     <Compile Include="utility\filtering\Condition.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\filtering\CriteriaExtensions.cs" />
@@ -81,8 +82,10 @@
     <Compile Include="utility\filtering\OrMatch.cs" />
     <Compile Include="utility\filtering\PropertyMatch.cs" />
     <Compile Include="utility\filtering\Where.cs" />
+    <Compile Include="utility\filtering\YearOfDateIsGreaterThan.cs" />
     <Compile Include="utility\ranges\InclusiveRange.cs" />
     <Compile Include="utility\ranges\Range.cs" />
+    <Compile Include="utility\sorting\Order.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

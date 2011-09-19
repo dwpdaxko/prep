@@ -11,7 +11,8 @@ namespace nothinbutdotnetprep.utility
                 yield return item;
         }
 
-        public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,Condition<ItemToMatch> criteria)
+        public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,
+                                                                               Condition<ItemToMatch> criteria)
         {
             foreach (var item in items)
             {
@@ -20,9 +21,18 @@ namespace nothinbutdotnetprep.utility
             }
         }
 
-        public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,IMatchA<ItemToMatch> criteria)
+        public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,
+                                                                               IMatchA<ItemToMatch> criteria)
         {
             return items.all_items_matching(criteria.matches);
+        }
+
+        public static IEnumerable<T> sort_using<T>(this IEnumerable<T> items,
+                                                   IComparer<T> comparer)
+        {
+            var sorted = new List<T>(items);
+            sorted.Sort(comparer);
+            return sorted;
         }
     }
 }
