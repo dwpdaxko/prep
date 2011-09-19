@@ -4,9 +4,9 @@ namespace nothinbutdotnetprep.utility.filtering
 {
     public static class Where<ItemToFilter>
     {
-        public static Func<ItemToFilter, PropertyType> has_a<PropertyType>(Func<ItemToFilter, PropertyType> accessor)
+        public static Something has_a<PropertyType>(Func<ItemToFilter, PropertyType> accessor)
         {
-            return accessor;
+            throw new NotImplementedException();
         }
     }
 }
