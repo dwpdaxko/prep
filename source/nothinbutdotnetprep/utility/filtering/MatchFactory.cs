@@ -18,7 +18,14 @@ namespace nothinbutdotnetprep.utility.filtering
 
         public IMatchA<ItemToFilter> equal_to_any(params PropertyType[] values)
         {
-            throw new NotImplementedException();
+        	var matcher = new AnyMatch<ItemToFilter>();
+
+        	foreach (var propertyType in values)
+        	{
+        		matcher.AddClause(equal_to(propertyType));
+        	}
+
+        	return matcher;
         }
     }
 }
