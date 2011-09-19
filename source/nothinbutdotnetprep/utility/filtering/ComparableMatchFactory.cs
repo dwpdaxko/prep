@@ -16,9 +16,27 @@ namespace nothinbutdotnetprep.utility.filtering
             return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(value) > 0);
         }
 
+        public IMatchA<ItemToFilter> less_than(PropertyType value)
+        {
+            return new NegatingMatch<ItemToFilter>(new OrMatch<ItemToFilter>(greater_than(value), equal(value)));
+        }
+
+        public IMatchA<ItemToFilter> not_equal(PropertyType value)
+        {
+            return new NegatingMatch<ItemToFilter>(equal(value));
+        }
+
+        public IMatchA<ItemToFilter> equal(PropertyType value)
+        {
+            return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(value) == 0);
+        }
+
         public IMatchA<ItemToFilter> between(PropertyType start,PropertyType end)
         {
-            return new AnonymousMatch<ItemToFilter>(x => accessor(x).CompareTo(start) >= 0 && accessor(x).CompareTo(end) <= 0);
+            return new OrMatch<ItemToFilter>(greater_than(start), less_than(end));
         }
+
+
+
     }
 }
