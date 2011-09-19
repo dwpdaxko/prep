@@ -16,14 +16,25 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies()
         {
+<<<<<<< HEAD
+            foreach (var movie in movies)
+                yield return movie;
+
+=======
             return movies.one_at_a_time();
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
         public void add(Movie movie)
         {
+<<<<<<< HEAD
+            if(!movies.Contains(movie))
+                movies.Add(movie);
+=======
             if (already_contains(movie)) return;
 
             movies.Add(movie);
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
         bool already_contains(Movie movie)
@@ -33,27 +44,54 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies_matching(Condition<Movie> criteria)
         {
+<<<<<<< HEAD
+            foreach (Movie movie in movies)
+            {
+                if (movie.production_studio.Equals(ProductionStudio.Pixar))
+                {
+                    yield return movie;
+                }
+            }
+=======
             return movies.all_items_matching(criteria);
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
 
 
         public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
         {
+<<<<<<< HEAD
+            foreach (Movie movie in movies)
+            {
+                if (movie.production_studio.Equals(ProductionStudio.Pixar) || movie.production_studio.Equals(ProductionStudio.Disney))
+                {
+                    yield return movie;
+                }
+            }
+=======
             return
                 all_movies_matching(
                     movie =>
                         movie.production_studio == ProductionStudio.Pixar ||
                             movie.production_studio == ProductionStudio.Disney);
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
         public IEnumerable<Movie> all_movies_published_after(int year)
         {
+<<<<<<< HEAD
+            List<Movie> movie_list = new List<Movie>(movies);
+            movie_list.Sort();
+            return movie_list;
+
+=======
             foreach (var movie in this.movies)
             {
                 if (movie.date_published.Year > year)
                     yield return movie;
             }
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
         public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
@@ -67,25 +105,53 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()
         {
+<<<<<<< HEAD
+            foreach(Movie movie in movies)
+            {
+                if(!movie.production_studio.Equals(ProductionStudio.Pixar))
+                {
+                    yield return movie;
+                }
+            }
+=======
             var sorted_movie_list = new List<Movie>(movies);
             return sorted_movie_list;
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
         }
 
         public IEnumerable<Movie> all_action_movies()
         {
+<<<<<<< HEAD
+            foreach (Movie movie in movies)
+            {
+                if (movie.date_published.Year > year)
+                {
+                    yield return movie;
+                }
+=======
             foreach (var movie in this.movies)
             {
                 if (movie.genre == Genre.action)
                     yield return movie;
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
             }
         }
 
         public IEnumerable<Movie> all_kid_movies()
         {
+<<<<<<< HEAD
+            foreach (Movie movie in movies)
+            {
+                if (movie.date_published.Year > startingYear && movie.date_published.Year < endingYear)
+                {
+                    yield return movie;
+                }
+=======
             foreach (var movie in this.movies)
             {
                 if (movie.genre == Genre.kids)
                     yield return movie;
+>>>>>>> d46b7cf25a21371cdd2b7effc46830a8b6cecc6a
             }
         }
 
@@ -100,14 +166,26 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> sort_all_movies_by_title_ascending()
         {
-            throw new NotImplementedException();
+            return movies_by_genre(Genre.kids);
         }
 
         public IEnumerable<Movie> sort_all_movies_by_movie_studio_and_year_published()
         {
-            throw new NotImplementedException();
+            return movies_by_genre(Genre.action);
         }
 
+        public IEnumerable<Movie> movies_by_genre(Genre genre)
+        {
+            foreach (Movie movie in movies)
+            {
+                if (movie.genre.Equals(genre))
+                {
+                    yield return movie;
+                }
+            }
+        } 
+
+        
         public IEnumerable<Movie> sort_all_movies_by_date_published_descending()
         {
             throw new NotImplementedException();
