@@ -58,9 +58,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collections\Genre.cs" />
+    <Compile Include="collections\IsInGenre.cs" />
+    <Compile Include="collections\IsPublishedBy.cs" />
     <Compile Include="collections\Movie.cs" />
+    <Compile Include="collections\MovieCriteria.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
+    <Compile Include="collections\ReadOnlySetOf.cs" />
+    <Compile Include="utility\filtering\AnonymousMatch.cs" />
+    <Compile Include="utility\filtering\Condition.cs" />
+    <Compile Include="utility\EnumerableExtensions.cs" />
+    <Compile Include="utility\filtering\CriteriaExtensions.cs" />
+    <Compile Include="utility\filtering\IMatchA.cs" />
+    <Compile Include="utility\filtering\OrMatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -79,6 +89,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

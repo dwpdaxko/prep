@@ -1,4 +1,6 @@
 using System;
+using nothinbutdotnetprep.utility;
+using nothinbutdotnetprep.utility.filtering;
 
 namespace nothinbutdotnetprep.collections
 {
@@ -12,22 +14,40 @@ namespace nothinbutdotnetprep.collections
 
         public bool Equals(Movie other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Equals(other.title, title);
+            if (other == null) return false;
+            return ReferenceEquals(this, other) || Equals(other.title, title);
         }
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (Movie)) return false;
-            return Equals((Movie) obj);
+            return (Equals(obj as Movie));
         }
 
         public override int GetHashCode()
         {
             return (title != null ? title.GetHashCode() : 0);
+        }
+
+        public static Condition<Movie> is_in_genre(Genre genre)
+        {
+            return new IsInGenre(genre).matches;
+        }
+
+        public static IMatchA<Movie> is_published_by(ProductionStudio  studio)
+        {
+            return new IsPublishedBy(studio);
+        }
+
+        public static IMatchA<Movie> is_published_by_pixar
+        {
+            get { return is_published_by(ProductionStudio.Pixar);}
+        }
+
+        public static IMatchA<Movie> is_published_by_pixar_or_disney()
+        {
+            return is_published_by(ProductionStudio.Pixar).or(
+                is_published_by(ProductionStudio.Disney));
+
         }
     }
 }
