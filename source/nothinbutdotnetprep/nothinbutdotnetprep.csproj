@@ -71,6 +71,7 @@
     <Compile Include="utility\filtering\CriteriaExtensions.cs" />
     <Compile Include="utility\filtering\IMatchA.cs" />
     <Compile Include="utility\filtering\OrMatch.cs" />
+    <Compile Include="utility\filtering\Where.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
