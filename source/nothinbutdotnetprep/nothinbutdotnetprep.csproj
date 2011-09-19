@@ -66,11 +66,11 @@
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="utility\filtering\AnonymousMatch.cs" />
-    <Compile Include="utility\filtering\ComparableMatchFactory.cs" />
     <Compile Include="utility\filtering\EqualToAny.cs" />
     <Compile Include="utility\filtering\ICreateMatchers.cs" />
     <Compile Include="utility\filtering\FallsInRange.cs" />
     <Compile Include="utility\filtering\IsGreaterThan.cs" />
+    <Compile Include="utility\filtering\MatchExtensions.cs" />
     <Compile Include="utility\filtering\NegatingMatch.cs" />
     <Compile Include="utility\filtering\NeverMatch.cs" />
     <Compile Include="utility\filtering\MatchFactory.cs" />
