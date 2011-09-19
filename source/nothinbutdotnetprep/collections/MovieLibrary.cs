@@ -14,12 +14,23 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies()
         {
-            return this.movies;
+            foreach (var movie in movies)
+            {
+                yield return movie;
+            }
         }
 
         public void add(Movie movie)
         {
-            throw new NotImplementedException();
+            bool should_add = true;
+            foreach (var _movie in movies)
+            {
+                if (_movie.Equals(movie))
+                    should_add = false;
+            }
+
+            if (should_add)
+                movies.Add(movie);
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()
@@ -80,6 +91,18 @@ namespace nothinbutdotnetprep.collections
         public IEnumerable<Movie> sort_all_movies_by_date_published_ascending()
         {
             throw new NotImplementedException();
+        }
+
+
+        public IEnumerable<Movie> get_movies_by(ISpecification<Movie> specification)
+        {
+            var movie_list = new List<Movie>();
+            foreach (var movie in movies)
+            {
+                if (specification.IsSatisfiedBy(movie))
+                    movie_list.Add(movie);
+            }
+            return movie_list;
         }
     }
 }

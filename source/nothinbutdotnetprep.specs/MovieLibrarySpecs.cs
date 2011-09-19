@@ -4,6 +4,7 @@ using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using nothinbutdotnetprep.collections;
+using nothinbutdotnetprep.specifications;
 using nothinbutdotnetprep.specs.utility;
 using System.Linq;
 
@@ -110,8 +111,7 @@ namespace nothinbutdotnetprep.specs
         }
 
         [Subject(typeof(MovieLibrary))]
-        public class when_trying_to_change_the_set_of_movies_returned_by_the_movie_library_to_a_mutable_type :
-            movie_library_concern
+        public class when_trying_to_change_the_set_of_movies_returned_by_the_movie_library_to_a_mutable_type : movie_library_concern
         {
             static Movie first_movie;
             static Movie second_movie;
@@ -195,14 +195,14 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
-                var results = sut.all_movies_published_by_pixar();
+                var results = sut.get_movies_by(new PublisherSpecification(ProductionStudio.Pixar));
 
                 results.ShouldContainOnly(cars, a_bugs_life);
             };
 
             It should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
-                var results = sut.all_movies_published_by_pixar_or_disney();
+                var results = sut.get_movies_by(new PublisherSpecification(ProductionStudio.Pixar).And(new PublisherSpecification(ProductionStudio.Disney)));
 
                 results.ShouldContainOnly(a_bugs_life, pirates_of_the_carribean, cars);
             };
