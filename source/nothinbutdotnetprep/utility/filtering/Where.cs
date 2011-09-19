@@ -8,8 +8,8 @@ namespace nothinbutdotnetprep.utility.filtering
             Func<ItemToFilter, PropertyType> accessor)
             where PropertyType : IComparable<PropertyType>
         {
-            return new ComparableMatchFactory<ItemToFilter, PropertyType>(accessor,
-                has_a(accessor));
+            return new ComparableMatchFactory<ItemToFilter, PropertyType>(has_a(accessor));
+                
         }
 
         public static MatchFactory<ItemToFilter, PropertyType> has_a<PropertyType>(Func<ItemToFilter, PropertyType> accessor)

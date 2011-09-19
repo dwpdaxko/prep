@@ -5,6 +5,7 @@ namespace nothinbutdotnetprep.utility.filtering
         IMatchA<ItemToFilter> equal_to(PropertyType value);
         IMatchA<ItemToFilter> equal_to_any(params PropertyType[] values);
         IMatchA<ItemToFilter> not_equal_to(PropertyType value);
-        public IMatchA<ItemToFilter> executeAnonymousMatch(Condition<ItemToFilter> crit);
+        IMatchA<ItemToFilter> create_using(Condition<ItemToFilter> condition);
+        IMatchA<ItemToFilter> create_using(IMatchA<PropertyType> real_condition);
     }
 }

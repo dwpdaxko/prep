@@ -1,32 +1,41 @@
 ﻿using System;
+using nothinbutdotnetprep.utility.ranges;
 
 namespace nothinbutdotnetprep.utility.filtering
 {
     public class ComparableMatchFactory<ItemToFilter, PropertyType> : ICreateMatchers<ItemToFilter,PropertyType> where PropertyType : IComparable<PropertyType>
     {
-        Func<ItemToFilter, PropertyType> accessor;
         ICreateMatchers<ItemToFilter, PropertyType> original;
 
-        public ComparableMatchFactory(Func<ItemToFilter, PropertyType> accessor, ICreateMatchers<ItemToFilter, PropertyType> original)
+        public ComparableMatchFactory(ICreateMatchers<ItemToFilter, PropertyType> original)
         {
-            this.accessor = accessor;
             this.original = original;
         }
 
         public IMatchA<ItemToFilter> greater_than(PropertyType value)
         {
-            return original.executeAnonymousMatch(x => accessor(x).CompareTo(value) > 0);
+            return original.create_using(new IsGreaterThan<PropertyType>(value));
+        }
+
+        public IMatchA<ItemToFilter> between(PropertyType start,PropertyType end)
+        {
+            return original.create_using(new FallsInRange<PropertyType>(
+                new InclusiveRange<PropertyType>(start, end)));
+        }
+
+        public IMatchA<ItemToFilter> create_using(Condition<ItemToFilter> condition)
+        {
+            return original.create_using(condition);
+        }
+
+        public IMatchA<ItemToFilter> create_using(IMatchA<PropertyType> real_condition)
+        {
+            return original.create_using(real_condition);
         }
 
         public IMatchA<ItemToFilter> less_than(PropertyType value)
         {
             return new NegatingMatch<ItemToFilter>(greater_than(value).or(equal_to(value)));
-        }
-
-
-        public IMatchA<ItemToFilter> between(PropertyType start,PropertyType end)
-        {
-            return new OrMatch<ItemToFilter>(greater_than(start).or(equal_to(start)), less_than(end).or(equal_to(end)));
         }
 
         public IMatchA<ItemToFilter> equal_to(PropertyType value)
