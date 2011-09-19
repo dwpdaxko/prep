@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Machine.Specifications;
+using System.Linq;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
+using Machine.Specifications;
 using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.specs.utility;
-using System.Linq;
+using nothinbutdotnetprep.utility;
 using nothinbutdotnetprep.utility.filtering;
 
 /* The following set of Context/Specification pairs are in place to specify the functionality that you need to complete for the MovieLibrary class.
@@ -195,9 +196,9 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.production_studio)
-                    .equal_to(ProductionStudio.Pixar);
-
+                var criteria = Where<Movie>
+                                    .has_a(x => x.production_studio)
+                                    .equal_to(ProductionStudio.Pixar);
 
                 var results = sut.all_movies().all_items_matching(criteria);
 

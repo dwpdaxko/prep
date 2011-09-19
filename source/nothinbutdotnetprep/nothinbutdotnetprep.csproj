@@ -66,6 +66,7 @@
     <Compile Include="collections\ProductionStudio.cs" />
     <Compile Include="collections\ReadOnlySetOf.cs" />
     <Compile Include="utility\filtering\AnonymousMatch.cs" />
+    <Compile Include="utility\filtering\AnonymousMatchBuilder.cs" />
     <Compile Include="utility\filtering\Condition.cs" />
     <Compile Include="utility\EnumerableExtensions.cs" />
     <Compile Include="utility\filtering\CriteriaExtensions.cs" />
