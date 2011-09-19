@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetprep.utility.filtering
 {
-    public class MatchFactory<ItemToFilter, PropertyType>
+    public class MatchFactory<ItemToFilter, PropertyType> 
     {
         Func<ItemToFilter, PropertyType> accessor;
 
@@ -24,7 +24,7 @@ namespace nothinbutdotnetprep.utility.filtering
 
         public IMatchA<ItemToFilter> not_equal_to(PropertyType value)
         {
-            return new AnonymousMatch<ItemToFilter>(x => !x.Equals(value));
+            return equal_to_any(value).not();
         }
     }
 }
