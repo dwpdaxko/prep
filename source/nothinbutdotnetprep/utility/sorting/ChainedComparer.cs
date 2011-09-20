@@ -2,12 +2,12 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetprep.utility.sorting
 {
-    public class NestedComparer<ItemToSort, PropertyType> : IComparer<ItemToSort>
+    public class ChainedComparer<ItemToSort, PropertyType> : IComparer<ItemToSort>
     {
-        readonly IComparer<ItemToSort> first;
-        readonly IComparer<ItemToSort> second;
+        IComparer<ItemToSort> first;
+        IComparer<ItemToSort> second;
 
-        public NestedComparer(IComparer<ItemToSort> first,
+        public ChainedComparer(IComparer<ItemToSort> first,
                                IComparer<ItemToSort> second)
         {
             this.first = first;
@@ -17,8 +17,9 @@ namespace nothinbutdotnetprep.utility.sorting
         public int Compare(ItemToSort x, ItemToSort y)
         {
             var result = first.Compare(x, y);
-            if (result == 0)
-                result = second.Compare(x, y);
+
+            if (result == 0) return second.Compare(x, y);
+
             return result;
         }
     }

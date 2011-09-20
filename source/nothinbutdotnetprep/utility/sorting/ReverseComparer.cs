@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetprep.utility.sorting
 {
-    public class ReversedComparer<ItemToSort> : IComparer<ItemToSort>
+    public class ReverseComparer<ItemToSort> : IComparer<ItemToSort>
     {
-        readonly IComparer<ItemToSort> comparer;
+        IComparer<ItemToSort> comparer;
 
-        public ReversedComparer(IComparer<ItemToSort> comparer)
+        public ReverseComparer(IComparer<ItemToSort> comparer)
         {
             this.comparer = comparer;
         }
 
         public int Compare(ItemToSort x, ItemToSort y)
         {
-            return comparer.Compare(x, y) * -1;
+            return -comparer.Compare(x, y);
         }
     }
 }

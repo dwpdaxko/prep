@@ -85,13 +85,14 @@
     <Compile Include="utility\filtering\YearOfDateIsGreaterThan.cs" />
     <Compile Include="utility\ranges\InclusiveRange.cs" />
     <Compile Include="utility\ranges\Range.cs" />
-    <Compile Include="utility\sorting\NestedComparer.cs" />
+    <Compile Include="utility\sorting\ChainedComparer.cs" />
     <Compile Include="utility\sorting\Order.cs" />
     <Compile Include="utility\sorting\OrderExtensionPoint.cs" />
     <Compile Include="utility\sorting\OrderExtensions.cs" />
-    <Compile Include="utility\sorting\BasicComparer.cs" />
+    <Compile Include="utility\sorting\ComparableComparer.cs" />
+    <Compile Include="utility\sorting\PropertyComparer.cs" />
     <Compile Include="utility\sorting\RankedComparer.cs" />
-    <Compile Include="utility\sorting\ReversedComparer.cs" />
+    <Compile Include="utility\sorting\ReverseComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

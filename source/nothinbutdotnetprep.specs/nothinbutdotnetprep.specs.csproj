@@ -75,7 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateComparer.cs" />
     <Compile Include="MovieLibrarySpecs.cs" />
     <Compile Include="utility\CollectionExtensions.cs" />
   </ItemGroup>

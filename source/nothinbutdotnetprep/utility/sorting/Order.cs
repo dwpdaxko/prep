@@ -8,18 +8,18 @@ namespace nothinbutdotnetprep.utility.sorting
         public static IComparer<ItemToSort> by_descending<PropertyType>(Func<ItemToSort, PropertyType> accessor)
             where PropertyType : IComparable<PropertyType>
         {
-            return new ReversedComparer<ItemToSort>(new BasicComparer<ItemToSort, PropertyType>(accessor));
+            return new ReverseComparer<ItemToSort>(by(accessor));
         }
 
         public static IComparer<ItemToSort> by<PropertyType>(Func<ItemToSort, PropertyType> accessor)
             where PropertyType : IComparable<PropertyType>
         {
-            return new BasicComparer<ItemToSort, PropertyType>(accessor);
+            return new ComparableComparer<>(accessor);
         }
 
         public static IComparer<ItemToSort> by<PropertyType>(Func<ItemToSort, PropertyType> accessor, params PropertyType[] rankings)
         {
-            return new RankedComparer<ItemToSort, PropertyType>(accessor, rankings);
+            return new PropertyComparer<ItemToSort,PropertyType>(accessor,new RankedComparer< PropertyType>(rankings);
         }
     }
 }
