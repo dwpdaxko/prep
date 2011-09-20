@@ -93,6 +93,8 @@
     <Compile Include="utility\sorting\PropertyComparer.cs" />
     <Compile Include="utility\sorting\RankedComparer.cs" />
     <Compile Include="utility\sorting\ReverseComparer.cs" />
+    <Compile Include="utility\sorting\SortBuilder.cs" />
+    <Compile Include="utility\sorting\SortedEnumerable.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using nothinbutdotnetprep.utility.filtering;
+using nothinbutdotnetprep.utility.sorting;
 
 namespace nothinbutdotnetprep.utility
 {
     public static class EnumerableExtensions
     {
-        public static Something for_sorting<ItemToSort>(this IEnumerable<ItemToSort> items)
+        public static OrderExtensionPoint<ItemToSort> sort<ItemToSort>(this IEnumerable<ItemToSort> items)
         {
-            
+            return new OrderExtensionPoint<ItemToSort>(items);
         }
 
         public static IEnumerable<T> one_at_a_time<T>(this IEnumerable<T> items)
