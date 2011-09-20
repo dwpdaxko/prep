@@ -25,5 +25,10 @@ namespace nothinbutdotnetprep.collections
         {
             return (title != null ? title.GetHashCode() : 0);
         }
+
+        public override string ToString()
+        {
+            return string.Format("[title:{0}]", title);
+        }
     }
 }
