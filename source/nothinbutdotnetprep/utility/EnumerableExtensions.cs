@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using nothinbutdotnetprep.utility.filtering;
 using nothinbutdotnetprep.utility.sorting;
+using System.Linq;
 
 namespace nothinbutdotnetprep.utility
 {
@@ -13,18 +14,13 @@ namespace nothinbutdotnetprep.utility
 
         public static IEnumerable<T> one_at_a_time<T>(this IEnumerable<T> items)
         {
-            foreach (var item in items)
-                yield return item;
+            return items.all_items_matching(x => true);
         }
 
         public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,
                                                                                Condition<ItemToMatch> criteria)
         {
-            foreach (var item in items)
-            {
-                if (criteria(item))
-                    yield return item;
-            }
+            return items.Where(criteria.Invoke);
         }
 
         public static IEnumerable<ItemToMatch> all_items_matching<ItemToMatch>(this IEnumerable<ItemToMatch> items,

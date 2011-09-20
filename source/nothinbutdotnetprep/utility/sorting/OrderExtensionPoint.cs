@@ -14,17 +14,17 @@ namespace nothinbutdotnetprep.utility.sorting
 
         public SortedEnumerable<ItemToSort> by_descending<PropertyType>(Func<ItemToSort, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            return new SortedEnumerable<ItemToSort>(items, new SortBuilder<ItemToSort>(Order<ItemToSort>.by_descending(accessor)));
+            return new SortedEnumerable<ItemToSort>(items, Order<ItemToSort>.by_descending(accessor));
         }
 
         public SortedEnumerable<ItemToSort> by<PropertyType>(Func<ItemToSort, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            return new SortedEnumerable<ItemToSort>(items, new SortBuilder<ItemToSort>(Order<ItemToSort>.by(accessor)));
+            return new SortedEnumerable<ItemToSort>(items, Order<ItemToSort>.by(accessor));
         }
 
         public SortedEnumerable<ItemToSort> by<PropertyType>(Func<ItemToSort, PropertyType> accessor, params PropertyType[] rankings)
         {
-            return new SortedEnumerable<ItemToSort>(items, new SortBuilder<ItemToSort>(Order<ItemToSort>.by(accessor, rankings)));
+            return new SortedEnumerable<ItemToSort>(items, Order<ItemToSort>.by(accessor, rankings));
         }
     }
 }

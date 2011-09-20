@@ -21,5 +21,6 @@ namespace nothinbutdotnetprep.utility.sorting
         {
             return new ChainedComparer<ItemToSort, PropertyType>(comparer, Order<ItemToSort>.by_descending(accessor));
         }
+
     }
 }

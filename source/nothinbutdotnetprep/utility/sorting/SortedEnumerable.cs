@@ -7,38 +7,33 @@ namespace nothinbutdotnetprep.utility.sorting
     public class SortedEnumerable<ItemToSort> : IEnumerable<ItemToSort>
     {
         IEnumerable<ItemToSort> items;
-        SortBuilder<ItemToSort> builder;
+        IComparer<ItemToSort> comparer;
 
-        public SortedEnumerable(IEnumerable<ItemToSort> items, SortBuilder<ItemToSort> builder)
+        public SortedEnumerable(IEnumerable<ItemToSort> items, IComparer<ItemToSort> comparer)
         {
             this.items = items;
-            this.builder = builder;
+            this.comparer = comparer;
         }
 
         public SortedEnumerable<ItemToSort> then_by_descending<PropertyType>(Func<ItemToSort, PropertyType> accessor) where PropertyType : IComparable<PropertyType>
         {
-            builder.then_by_descending(accessor);
-            return this;
+            return new SortedEnumerable<ItemToSort>(items,comparer.then_by_descending(accessor));
         }
 
         public SortedEnumerable<ItemToSort> then_by<PropertyType>(Func<ItemToSort, PropertyType> accessor)
             where PropertyType : IComparable<PropertyType>
         {
-            builder.then_by(accessor);
-            return this;
+            return new SortedEnumerable<ItemToSort>(items,comparer.then_by(accessor));
         }
 
         public SortedEnumerable<ItemToSort> then_by<PropertyType>(Func<ItemToSort, PropertyType> accessor, params PropertyType[] rankings)
         {
-            builder.then_by(accessor, rankings);
-            return this;
+            return new SortedEnumerable<ItemToSort>(items,comparer.then_by(accessor,rankings));
         }
 
         public IEnumerator<ItemToSort> GetEnumerator()
         {
-            var list = new List<ItemToSort>(items);
-            list.Sort(builder.build());
-            return list.GetEnumerator();
+            return items.sort_using(comparer).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
